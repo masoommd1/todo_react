@@ -5,14 +5,14 @@ import axios from "axios";
 
 const App = () => {
   const [newTodo, setNewTodo] = useState("");
-  const [todos , setTodos] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   const addTodo = async(e)=>{
-    e.prevent.default();
+    e.preventDefault();
     if(!newTodo.trim()) return;
     try {
       const  response = await axios.post("api/todos", {text:newTodo})
-      setTodos = ([...todos, response.data])
+      setTodos([...todos, response.data])
       setNewTodo('');
     } catch (error) {
       console.log("error adding todos", error);

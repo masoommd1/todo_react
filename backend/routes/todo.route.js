@@ -1,7 +1,9 @@
-import express, { text } from 'express';
+import express from 'express';
 import Todo from '../models/todo-model.js';
 
 const router = express.Router();
+// app.use(express.json());
+
 
 // get all todos
 
@@ -17,7 +19,7 @@ try {
 // add a new todo
 
 router.post('/', async (req,res)=>{
-        
+     console.log('POST body:', req.body);  
     const  todo = new Todo({
     text:req.body.text
     })
@@ -32,7 +34,7 @@ router.post('/', async (req,res)=>{
 
 // update todo
 
-router.patch("/:id",async(req,res)=>{
+router.patch('/:id',async(req,res)=>{
     
     try {
     const todo = await  Todo.findById(req.params.id);

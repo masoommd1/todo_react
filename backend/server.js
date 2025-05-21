@@ -12,6 +12,16 @@ app.use(express.json());
 
 app.use("/api/todos",todoroutes)
 
+//  checking routing
+
+// router.get('/check',(req,res)=>{
+//         res.send("hello from node server");
+//     })
+    
+ 
+
+
+
 app.listen(5000,()=>{
     connectDB()
     console.log("server stated")
